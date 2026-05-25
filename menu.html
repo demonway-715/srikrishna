@@ -44,11 +44,19 @@
 
     .slider-container {
       display: flex;
-      transition: transform 0.5s ease;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: none;
     }
 
     .slide {
       min-width: 100%;
+      scroll-snap-align: start;
       position: relative;
     }
 
@@ -85,34 +93,6 @@
       color: #ffd1e7;
       font-weight: 700;
       font-size: 1.1rem;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.22);
-      color: #ffffff;
-      font-size: 1.4rem;
-      cursor: pointer;
-      z-index: 20;
-      backdrop-filter: blur(6px);
-    }
-
-    .slider-btn:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .prev-btn {
-      left: 18px;
-    }
-
-    .next-btn {
-      right: 18px;
     }
 
     /* SEARCH */
@@ -217,11 +197,6 @@
         font-size: 1.5rem;
       }
 
-      .slider-btn {
-        width: 44px;
-        height: 44px;
-      }
-
     }
 
   </style>
@@ -274,10 +249,6 @@ Chinese dishes and bakery specials made with love.
 
 <div class="slider-wrapper">
 
-<button class="slider-btn prev-btn">&#10094;</button>
-
-<button class="slider-btn next-btn">&#10095;</button>
-
 <div class="slider-container">
 
 <div class="slide">
@@ -318,7 +289,7 @@ Chinese dishes and bakery specials made with love.
 <div class="slide-overlay">
 <div class="slide-content">
 <h2>Chat Items</h2>
-<p>Crunchy, spicy, tangy street-style chats that bring joy to every bite.!</p>
+<p>Crunchy, spicy, tangy street-style chats that bring joy to every bite!</p>
 <div class="slide-price">Starting from ₹15</div>
 </div>
 </div>
@@ -363,8 +334,6 @@ Chinese dishes and bakery specials made with love.
 
 <div class="menu-grid" id="menuGrid">
 
-<!-- BREAKFAST -->
-
 <div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Vada</h3><div class="menu-price">₹10</div></div>
 
 <div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Idly (2pcs)</h3><div class="menu-price">₹20</div></div>
@@ -399,13 +368,9 @@ Chinese dishes and bakery specials made with love.
 
 <div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Masal Roast</h3><div class="menu-price">₹70</div></div>
 
-<!-- EVENING -->
-
 <div class="menu-item" data-category="Evening"><div class="menu-category">Evening</div><h3>Podi Idly</h3><div class="menu-price">₹90</div></div>
 
 <div class="menu-item" data-category="Evening"><div class="menu-category">Evening</div><h3>Pepper Idly</h3><div class="menu-price">₹90</div></div>
-
-<!-- RICE -->
 
 <div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Sambar Rice</h3><div class="menu-price">₹45</div></div>
 
@@ -418,8 +383,6 @@ Chinese dishes and bakery specials made with love.
 <div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Veg Kushka</h3><div class="menu-price">₹50</div></div>
 
 <div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Veg Briyani</h3><div class="menu-price">₹70</div></div>
-
-<!-- PAROTTA -->
 
 <div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Parotta (2pcs)</h3><div class="menu-price">₹40</div></div>
 
@@ -439,8 +402,6 @@ Chinese dishes and bakery specials made with love.
 
 <div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Paneer Chilli Parotta</h3><div class="menu-price">₹130</div></div>
 
-<!-- 65 ITEMS -->
-
 <div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Baby Corn 65</h3><div class="menu-price">₹100</div></div>
 
 <div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Gobi 65</h3><div class="menu-price">₹110</div></div>
@@ -448,8 +409,6 @@ Chinese dishes and bakery specials made with love.
 <div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Mushroom 65</h3><div class="menu-price">₹120</div></div>
 
 <div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Paneer 65</h3><div class="menu-price">₹130</div></div>
-
-<!-- SNACKS -->
 
 <div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Pani Poori</h3><div class="menu-price">₹35</div></div>
 
@@ -472,8 +431,6 @@ Chinese dishes and bakery specials made with love.
 <div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Mushroom Puffs</h3><div class="menu-price">₹20</div></div>
 
 <div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Paneer Puffs</h3><div class="menu-price">₹20</div></div>
-
-<!-- CHINESE -->
 
 <div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Veg Fried Rice</h3><div class="menu-price">₹80</div></div>
 
@@ -503,36 +460,29 @@ Chinese dishes and bakery specials made with love.
 </div>
 </footer>
 
-<script src="js/main.js"></script>
-
 <script>
 
 const slider = document.querySelector(".slider-container");
-const slides = document.querySelectorAll(".slide");
-const nextBtn = document.querySelector(".next-btn");
-const prevBtn = document.querySelector(".prev-btn");
-
-let currentSlide = 0;
-
-function updateSlider() {
-slider.style.transform =
-`translateX(-${currentSlide * 100}%)`;
-}
-
-nextBtn.addEventListener("click", () => {
-currentSlide = (currentSlide + 1) % slides.length;
-updateSlider();
-});
-
-prevBtn.addEventListener("click", () => {
-currentSlide =
-(currentSlide - 1 + slides.length) % slides.length;
-updateSlider();
-});
 
 setInterval(() => {
-currentSlide = (currentSlide + 1) % slides.length;
-updateSlider();
+
+  slider.scrollBy({
+    left: window.innerWidth,
+    behavior: "smooth"
+  });
+
+  if (
+    slider.scrollLeft + slider.clientWidth >=
+    slider.scrollWidth - 10
+  ) {
+
+    slider.scrollTo({
+      left: 0,
+      behavior: "smooth"
+    });
+
+  }
+
 }, 4000);
 
 const searchInput =
@@ -541,9 +491,14 @@ document.getElementById("searchInput");
 const menuItems =
 document.querySelectorAll(".menu-item");
 
-searchInput.addEventListener("keyup", () => {
+const categoryBtns =
+document.querySelectorAll(".category-btn");
 
-const value =
+let currentCategory = "all";
+
+function filterMenu() {
+
+const searchValue =
 searchInput.value.toLowerCase();
 
 menuItems.forEach(item => {
@@ -551,17 +506,31 @@ menuItems.forEach(item => {
 const text =
 item.innerText.toLowerCase();
 
-item.style.display =
-text.includes(value)
-? "block"
-: "none";
+const itemCategory =
+item.dataset.category;
+
+const matchesSearch =
+text.includes(searchValue);
+
+const matchesCategory =
+currentCategory === "all" ||
+itemCategory === currentCategory;
+
+if(matchesSearch && matchesCategory){
+
+item.style.display = "block";
+
+}else{
+
+item.style.display = "none";
+
+}
 
 });
 
-});
+}
 
-const categoryBtns =
-document.querySelectorAll(".category-btn");
+searchInput.addEventListener("keyup", filterMenu);
 
 categoryBtns.forEach(btn => {
 
@@ -573,28 +542,20 @@ b.classList.remove("active")
 
 btn.classList.add("active");
 
-const category =
+currentCategory =
 btn.dataset.category;
 
-menuItems.forEach(item => {
-
-if (
-category === "all" ||
-item.dataset.category === category
-) {
-
-item.style.display = "block";
-
-} else {
-
-item.style.display = "none";
-
-}
+filterMenu();
 
 });
 
 });
 
+const mobileToggle = document.getElementById("mobileToggle");
+const navLinks = document.getElementById("navLinks");
+
+mobileToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
 });
 
 </script>
