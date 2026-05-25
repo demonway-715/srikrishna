@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Order Now | Sri Krishna Bakery</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="container navbar">
+
+      <a href="index.html" class="brand">
+        <span>Sri Krishna</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileToggle">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">Home</a>
+        
+        <a href="menu.html">Menu</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="booking.html">Order Now</a>
+
+        <a href="contact.html">Contact</a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+
+    <div class="container">
+
+      <h1>Order Your Favorite Foods</h1>
+
+      <p>
+        Fresh bakery items, cakes, snacks, tea and meals available daily.
+        Place your order directly through WhatsApp.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ORDER SECTION -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="card booking-card">
+
+        <div class="booking-header">
+
+          <h2>Place Your Order</h2>
+
+          <p>
+            Fill the form below and your order will automatically open in WhatsApp.
+          </p>
+
+        </div>
+
+        <!-- ORDER FORM -->
+        <form id="orderForm">
+
+          <div class="form-grid">
+
+            <!-- CUSTOMER NAME -->
+            <div class="form-group">
+
+              <label for="customerName">
+                Customer Name
+              </label>
+
+              <input
+                type="text"
+                id="customerName"
+                placeholder="Enter your name"
+                required
+              />
+
+            </div>
+
+            <!-- PHONE NUMBER -->
+            <div class="form-group">
+
+              <label for="customerPhone">
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Enter your phone number"
+                required
+              />
+
+            </div>
+
+            <!-- PRODUCT NAME -->
+            <div class="form-group">
+
+              <label for="foodItem">
+                Product Name
+              </label>
+
+              <input
+                type="text"
+                id="foodItem"
+                placeholder="Example: Black Forest Cake"
+                required
+              />
+
+            </div>
+
+            <!-- QUANTITY -->
+            <div class="form-group">
+
+              <label for="quantity">
+                Quantity
+              </label>
+
+              <input
+                type="text"
+                id="quantity"
+                placeholder="Example: 2 Cakes / 5 Puffs"
+                required
+              />
+
+            </div>
+
+          </div>
+
+          <!-- EXTRA NOTES -->
+          <div class="form-group" style="margin-top: 20px;">
+
+            <label for="customerNote">
+              Extra Notes (Optional)
+            </label>
+
+            <textarea
+              id="customerNote"
+              rows="4"
+              placeholder="Add extra order details here..."
+            ></textarea>
+
+          </div>
+
+          <!-- BUTTON -->
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            style="margin-top: 20px;"
+          >
+            Order on WhatsApp
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="container text-center">
+
+      <p>
+        © <span class="current-year"></span>
+        Sri Krishna Bakery & Hotel.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- MAIN JS -->
+  <script src="js/main.js"></script>
+
+  <!-- WHATSAPP ORDER SCRIPT -->
+  <script>
+
+    document
+      .getElementById("orderForm")
+      .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        const name =
+          document.getElementById("customerName").value;
+
+        const phone =
+          document.getElementById("customerPhone").value;
+
+        const item =
+          document.getElementById("foodItem").value;
+
+        const quantity =
+          document.getElementById("quantity").value;
+
+        const note =
+          document.getElementById("customerNote").value;
+
+        const message =
+`🍰 Sri Krishna Bakery Order
+
+👤 Customer Name: ${name}
+
+📞 Phone Number: ${phone}
+
+🍔 Product Name: ${item}
+
+🔢 Quantity: ${quantity}
+
+📝 Extra Notes:
+${note}`;
+
+        /* OWNER WHATSAPP NUMBER */
+        const whatsappNumber =
+          "917373126434";
+
+        const whatsappURL =
+`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappURL, "_blank");
+
+      });
+
+  </script>
+
+</body>
+</html>

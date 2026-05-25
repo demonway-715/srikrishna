@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Menu | Sri Krishna</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+
+    .menu-page {
+      padding: 110px 0 70px;
+    }
+
+    .menu-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .menu-heading h1 {
+      font-size: 2.8rem;
+      color: #111111;
+      margin-bottom: 12px;
+    }
+
+    .menu-heading p {
+      color: #444444;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    /* SLIDER */
+
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      margin-bottom: 35px;
+    }
+
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.1));
+      display: flex;
+      align-items: flex-end;
+      padding: 35px;
+    }
+
+    .slide-content h2 {
+      color: #ffffff;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-content p {
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 10px;
+    }
+
+    .slide-price {
+      color: #ffd1e7;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 20;
+      backdrop-filter: blur(6px);
+    }
+
+    .slider-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .prev-btn {
+      left: 18px;
+    }
+
+    .next-btn {
+      right: 18px;
+    }
+
+    /* SEARCH */
+
+    .menu-search {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .menu-search input {
+      width: 100%;
+      max-width: 620px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: none;
+      background: #ffffff;
+      color: #111111;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    /* CATEGORY */
+
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 45px;
+    }
+
+    .category-btn {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #111111;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .category-btn.active,
+    .category-btn:hover {
+      background: #ff85c2;
+      color: #ffffff;
+    }
+
+    /* MENU GRID */
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      transition: 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-category {
+      color: #ff5ca8;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .menu-item h3 {
+      color: #111111;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .menu-price {
+      color: #ff2f92;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    @media(max-width:768px){
+
+      .menu-heading h1 {
+        font-size: 2.1rem;
+      }
+
+      .slide img {
+        height: 300px;
+      }
+
+      .slide-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .slider-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="container navbar">
+
+<a href="index.html" class="brand">
+<span>SRI KRISHNA</span>
+</a>
+
+<button class="mobile-toggle" id="mobileToggle">☰</button>
+
+<nav class="nav-links" id="navLinks">
+
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="services.html">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="booking.html">Order Now</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="menu-page">
+
+<div class="container">
+
+<div class="menu-heading">
+
+<h1>Our Menu</h1>
+
+<p>
+Fresh breakfast, delicious snacks, traditional foods,
+Chinese dishes and bakery specials made with love.
+</p>
+
+</div>
+
+<!-- SLIDER -->
+
+<div class="slider-wrapper">
+
+<button class="slider-btn prev-btn">&#10094;</button>
+
+<button class="slider-btn next-btn">&#10095;</button>
+
+<div class="slider-container">
+
+<div class="slide">
+<img src="assets/images/menu/breakfast.png" alt="">
+<div class="slide-overlay">
+<div class="slide-content">
+<h2>Breakfast Items</h2>
+<p>Hot dosa, soft idly, and many other pure morning happiness!</p>
+<div class="slide-price">Starting from ₹20</div>
+</div>
+</div>
+</div>
+
+<div class="slide">
+<img src="assets/images/menu/parotta.png" alt="">
+<div class="slide-overlay">
+<div class="slide-content">
+<h2>Parotta Varieties</h2>
+<p>From classic parotta to spicy chilli varieties — flavor in every bite!</p>
+<div class="slide-price">Starting from ₹40</div>
+</div>
+</div>
+</div>
+
+<div class="slide">
+<img src="assets/images/menu/chinese.png" alt="">
+<div class="slide-overlay">
+<div class="slide-content">
+<h2>Chinese Foods</h2>
+<p>Hot wok flavors with a perfect blend of spice, aroma, and satisfaction!</p>
+<div class="slide-price">Starting from ₹80</div>
+</div>
+</div>
+</div>
+
+<div class="slide">
+<img src="assets/images/menu/chat.png" alt="">
+<div class="slide-overlay">
+<div class="slide-content">
+<h2>Chat Items</h2>
+<p>Crunchy, spicy, tangy street-style chats that bring joy to every bite.!</p>
+<div class="slide-price">Starting from ₹15</div>
+</div>
+</div>
+</div>
+
+<div class="slide">
+<img src="assets/images/menu/podi idly.png" alt="">
+<div class="slide-overlay">
+<div class="slide-content">
+<h2>Evening Special</h2>
+<p>Soft idlies tossed in spicy pepper magic — the perfect evening treat!</p>
+<div class="slide-price">Just only ₹90</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SEARCH -->
+
+<div class="menu-search">
+<input type="text" id="searchInput" placeholder="Search dishes here...">
+</div>
+
+<!-- CATEGORY -->
+
+<div class="category-buttons">
+
+<button class="category-btn active" data-category="all">All</button>
+<button class="category-btn" data-category="Breakfast">Breakfast</button>
+<button class="category-btn" data-category="Evening">Evening</button>
+<button class="category-btn" data-category="Rice">Rice</button>
+<button class="category-btn" data-category="Parotta">Parotta</button>
+<button class="category-btn" data-category="65 Items">65 Items</button>
+<button class="category-btn" data-category="Snacks">Snacks</button>
+<button class="category-btn" data-category="Chinese">Chinese</button>
+
+</div>
+
+<!-- MENU GRID -->
+
+<div class="menu-grid" id="menuGrid">
+
+<!-- BREAKFAST -->
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Vada</h3><div class="menu-price">₹10</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Idly (2pcs)</h3><div class="menu-price">₹20</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Pongal</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Kitchadi</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Poori (2pcs)</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Dosa</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Uthappam</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Roast</h3><div class="menu-price">₹55</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Podi Roast</h3><div class="menu-price">₹65</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Ghee Roast</h3><div class="menu-price">₹75</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Podi Ghee Roast</h3><div class="menu-price">₹85</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Onion Roast</h3><div class="menu-price">₹75</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Onion Uthappam</h3><div class="menu-price">₹75</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Rava Roast</h3><div class="menu-price">₹60</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Rava Ghee Roast</h3><div class="menu-price">₹80</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Rava Onion Roast</h3><div class="menu-price">₹70</div></div>
+
+<div class="menu-item" data-category="Breakfast"><div class="menu-category">Breakfast</div><h3>Masal Roast</h3><div class="menu-price">₹70</div></div>
+
+<!-- EVENING -->
+
+<div class="menu-item" data-category="Evening"><div class="menu-category">Evening</div><h3>Podi Idly</h3><div class="menu-price">₹90</div></div>
+
+<div class="menu-item" data-category="Evening"><div class="menu-category">Evening</div><h3>Pepper Idly</h3><div class="menu-price">₹90</div></div>
+
+<!-- RICE -->
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Sambar Rice</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Curd Rice</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Tomato Rice</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Lemon Rice</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Veg Kushka</h3><div class="menu-price">₹50</div></div>
+
+<div class="menu-item" data-category="Rice"><div class="menu-category">Rice</div><h3>Veg Briyani</h3><div class="menu-price">₹70</div></div>
+
+<!-- PAROTTA -->
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Parotta (2pcs)</h3><div class="menu-price">₹40</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Chappathi (2pcs)</h3><div class="menu-price">₹40</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Leaf Parotta</h3><div class="menu-price">₹90</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Mushroom Leaf Parotta</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Paneer Leaf Parotta</h3><div class="menu-price">₹130</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Chilli Parotta</h3><div class="menu-price">₹100</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Kaima Parotta</h3><div class="menu-price">₹100</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Mushroom Chilli Parotta</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="Parotta"><div class="menu-category">Parotta</div><h3>Paneer Chilli Parotta</h3><div class="menu-price">₹130</div></div>
+
+<!-- 65 ITEMS -->
+
+<div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Baby Corn 65</h3><div class="menu-price">₹100</div></div>
+
+<div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Gobi 65</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Mushroom 65</h3><div class="menu-price">₹120</div></div>
+
+<div class="menu-item" data-category="65 Items"><div class="menu-category">65 Items</div><h3>Paneer 65</h3><div class="menu-price">₹130</div></div>
+
+<!-- SNACKS -->
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Pani Poori</h3><div class="menu-price">₹35</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Masal Poori</h3><div class="menu-price">₹45</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Bhel Poori</h3><div class="menu-price">₹40</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Dhai Poori</h3><div class="menu-price">₹60</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Chenna Samosa</h3><div class="menu-price">₹50</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Chenna Cutlet</h3><div class="menu-price">₹50</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Samosa</h3><div class="menu-price">₹15</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Cutlet</h3><div class="menu-price">₹15</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Veg Puffs</h3><div class="menu-price">₹15</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Mushroom Puffs</h3><div class="menu-price">₹20</div></div>
+
+<div class="menu-item" data-category="Snacks"><div class="menu-category">Snacks</div><h3>Paneer Puffs</h3><div class="menu-price">₹20</div></div>
+
+<!-- CHINESE -->
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Veg Fried Rice</h3><div class="menu-price">₹80</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Mushroom Fried Rice</h3><div class="menu-price">₹90</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Paneer Fried Rice</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Gobi Fried Rice</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Veg Noodles</h3><div class="menu-price">₹80</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Mushroom Noodles</h3><div class="menu-price">₹90</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Paneer Noodles</h3><div class="menu-price">₹110</div></div>
+
+<div class="menu-item" data-category="Chinese"><div class="menu-category">Chinese</div><h3>Gobi Noodles</h3><div class="menu-price">₹110</div></div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+<div class="container text-center">
+<p>© <span class="current-year"></span> Sri Krishna Bakery & Hotel. All rights reserved.</p>
+</div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script>
+
+const slider = document.querySelector(".slider-container");
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+
+let currentSlide = 0;
+
+function updateSlider() {
+slider.style.transform =
+`translateX(-${currentSlide * 100}%)`;
+}
+
+nextBtn.addEventListener("click", () => {
+currentSlide = (currentSlide + 1) % slides.length;
+updateSlider();
+});
+
+prevBtn.addEventListener("click", () => {
+currentSlide =
+(currentSlide - 1 + slides.length) % slides.length;
+updateSlider();
+});
+
+setInterval(() => {
+currentSlide = (currentSlide + 1) % slides.length;
+updateSlider();
+}, 4000);
+
+const searchInput =
+document.getElementById("searchInput");
+
+const menuItems =
+document.querySelectorAll(".menu-item");
+
+searchInput.addEventListener("keyup", () => {
+
+const value =
+searchInput.value.toLowerCase();
+
+menuItems.forEach(item => {
+
+const text =
+item.innerText.toLowerCase();
+
+item.style.display =
+text.includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+const categoryBtns =
+document.querySelectorAll(".category-btn");
+
+categoryBtns.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+categoryBtns.forEach(b =>
+b.classList.remove("active")
+);
+
+btn.classList.add("active");
+
+const category =
+btn.dataset.category;
+
+menuItems.forEach(item => {
+
+if (
+category === "all" ||
+item.dataset.category === category
+) {
+
+item.style.display = "block";
+
+} else {
+
+item.style.display = "none";
+
+}
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
